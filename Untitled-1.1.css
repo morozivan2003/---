@@ -1,0 +1,32 @@
+
+.List {
+	counter-reset: main-counter; /* Сброс основного счетчика */
+	list-style: none; /* Убираю нумерацию */
+  }
+.List > li {
+	counter-increment: main-counter; /* Увеличиваю основной счетчик */
+	margin-bottom: 10px;
+	position: relative;
+	padding-left: 15px; /* Отступ для списка */
+  } 
+  .List > li::before {
+	content: counter(main-counter) " "; /* Выводим основной номер */
+	position: absolute;
+	left: 0;
+  }
+ .List ol {
+	counter-reset: sub-counter; /* Сброс подуровневого счетчика */
+	list-style: none; 
+	padding-left: 15px; 
+  }
+  .List ol li {
+	counter-increment: sub-counter; /* Увеличиваю подуровневый счетчик */
+	position: relative;
+	margin-bottom: 5px;
+	padding-left: 30px; 
+  }
+  .List ol li::before {
+	content: counter(main-counter) "." counter(sub-counter) " "; /* нумерация подуровня */
+	position: absolute;
+	left: 0;
+  }
